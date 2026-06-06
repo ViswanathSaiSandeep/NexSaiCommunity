@@ -43,7 +43,6 @@ export default function Hero() {
         <div className="hero-glow-blob blob-1" />
         <div className="hero-glow-blob blob-2" />
       </div>
-      <div className="hero-grid-overlay" />
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
@@ -144,28 +143,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <style>{`
-        .hero-grid-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-size: 80px 80px;
-          background-image: 
-            linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
-            linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
-          mask-image: radial-gradient(circle 50% at 50% 50%, #000 40%, transparent 100%);
-          -webkit-mask-image: radial-gradient(circle 50% at 50% 50%, #000 40%, transparent 100%);
-          z-index: 1;
-          pointer-events: none;
-        }
-        @media (max-width: 768px) {
-          .hero-grid-overlay {
-            display: none !important;
-          }
-        }
-      `}</style>
+
     </section>
   );
 }
