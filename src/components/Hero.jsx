@@ -160,6 +160,11 @@ export default function Hero() {
           z-index: 1;
           pointer-events: none;
         }
+        @media (max-width: 768px) {
+          .hero-grid-overlay {
+            display: none !important;
+          }
+        }
       `}</style>
     </section>
   );
