@@ -194,30 +194,40 @@ export default function Navbar({ theme, setTheme }) {
               top: scrolled ? 'calc(0.75rem + 76px)' : 'calc(1.25rem + 76px)',
               left: scrolled ? '0.75rem' : '1.25rem',
               right: scrolled ? '0.75rem' : '1.25rem',
-              backgroundColor: theme === 'dark' ? 'rgba(6, 8, 12, 0.96)' : 'rgba(235, 240, 246, 0.96)',
+              background: theme === 'dark' 
+                ? 'linear-gradient(135deg, rgba(6, 8, 12, 0.96) 0%, rgba(10, 25, 50, 0.96) 100%)' 
+                : 'linear-gradient(135deg, rgba(243, 245, 249, 0.96) 0%, rgba(215, 230, 250, 0.96) 100%)',
               backdropFilter: 'blur(24px)',
               WebkitBackdropFilter: 'blur(24px)',
               border: '1px solid var(--m3-outline-variant)',
               borderRadius: 'var(--m3-radius-xl)',
               zIndex: 99,
-              padding: '1.75rem',
+              padding: '1.25rem',
               boxShadow: '0 12px 40px var(--m3-card-shadow)',
               transition: 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1), left 0.4s cubic-bezier(0.16, 1, 0.3, 1), right 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
           >
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', listStyle: 'none', margin: 0, padding: 0 }}>
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
                     style={{
-                      color: activeSection === link.id ? 'var(--accent-blue)' : 'var(--text-primary)',
+                      color: activeSection === link.id ? '#FFFFFF' : 'var(--text-primary)',
                       textDecoration: 'none',
                       fontWeight: 600,
-                      fontSize: '1.2rem',
+                      fontSize: '1.1rem',
                       display: 'block',
-                      padding: '0.5rem 0'
+                      padding: '0.75rem 1.25rem',
+                      borderRadius: 'var(--m3-radius-full)',
+                      background: activeSection === link.id 
+                        ? 'linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-blue-hover) 100%)' 
+                        : 'transparent',
+                      boxShadow: activeSection === link.id 
+                        ? '0 4px 12px var(--accent-blue-glow)' 
+                        : 'none',
+                      transition: 'all 0.3s ease'
                     }}
                   >
                     {link.name}

@@ -441,7 +441,7 @@ textarea.form-control {
   .glass-nav {
     top: 0.75rem;
     width: calc(100% - 1.5rem);
-    border-radius: var(--m3-radius-lg);
+    border-radius: var(--m3-radius-xl);
   }
   .nav-scrolled {
     top: 0.5rem;
