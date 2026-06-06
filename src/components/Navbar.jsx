@@ -139,14 +139,43 @@ export default function Navbar({ theme, setTheme }) {
                 background: 'none', 
                 border: 'none', 
                 color: 'var(--text-primary)', 
-                fontSize: '1.5rem', 
                 cursor: 'pointer',
                 display: 'none',
-                alignItems: 'center'
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '40px',
+                height: '40px',
+                padding: 0
               }}
               className="mobile-toggle-btn"
+              aria-label="Toggle Menu"
             >
-              {isOpen ? <FiX /> : <FiMenu />}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <motion.line
+                  x1="3"
+                  y1="6"
+                  x2="21"
+                  y2="6"
+                  animate={isOpen ? { x1: 5, y1: 5, x2: 19, y2: 19 } : { x1: 3, y1: 6, x2: 21, y2: 6 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                />
+                <motion.line
+                  x1="3"
+                  y1="12"
+                  x2="21"
+                  y2="12"
+                  animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
+                <motion.line
+                  x1="3"
+                  y1="18"
+                  x2="21"
+                  y2="18"
+                  animate={isOpen ? { x1: 5, y1: 19, x2: 19, y2: 5 } : { x1: 3, y1: 18, x2: 21, y2: 18 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                />
+              </svg>
             </button>
           </div>
         </div>
