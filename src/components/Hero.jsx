@@ -111,6 +111,7 @@ export default function Hero() {
             {/* CTA Buttons in Pill Form */}
             <motion.div 
               variants={itemVariants}
+              className="hero-buttons-container"
               style={{ 
                 display: 'flex', 
                 gap: '1.25rem', 

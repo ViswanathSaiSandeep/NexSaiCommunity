@@ -169,7 +169,7 @@ section {
   height: 90vw;
   max-width: 950px;
   max-height: 950px;
-  background: radial-gradient(circle, rgba(0, 123, 255, 0.24) 0%, rgba(0, 123, 255, 0.06) 55%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(circle, rgba(0, 123, 255, 0.3) 0%, rgba(0, 123, 255, 0.08) 55%, rgba(0, 123, 255, 0) 80%);
   top: -25%;
   left: -10%;
   animation: gasFlow1 32s infinite alternate ease-in-out;
@@ -180,7 +180,7 @@ section {
   height: 80vw;
   max-width: 850px;
   max-height: 850px;
-  background: radial-gradient(circle, rgba(0, 190, 255, 0.2) 0%, rgba(0, 123, 255, 0.05) 50%, rgba(0, 0, 0, 0) 75%);
+  background: radial-gradient(circle, rgba(0, 190, 255, 0.25) 0%, rgba(0, 123, 255, 0.06) 50%, rgba(0, 190, 255, 0) 75%);
   bottom: -25%;
   right: -10%;
   animation: gasFlow2 26s infinite alternate ease-in-out;
@@ -446,6 +446,22 @@ textarea.form-control {
   .nav-scrolled {
     top: 0.5rem;
   }
+  .blob-1 {
+    width: 140vw;
+    height: 140vw;
+    top: -15%;
+    left: -20%;
+    background: radial-gradient(circle, rgba(0, 123, 255, 0.45) 0%, rgba(0, 123, 255, 0.12) 55%, rgba(0, 123, 255, 0) 80%) !important;
+    filter: blur(100px) !important;
+  }
+  .blob-2 {
+    width: 135vw;
+    height: 135vw;
+    bottom: -15%;
+    right: -20%;
+    background: radial-gradient(circle, rgba(0, 190, 255, 0.4) 0%, rgba(0, 123, 255, 0.1) 50%, rgba(0, 190, 255, 0) 75%) !important;
+    filter: blur(100px) !important;
+  }
 }
 
 /* Light Theme Title & Text Overrides */
@@ -474,5 +490,16 @@ textarea.form-control {
 @media (max-width: 600px) {
   .m3-card, .contact-form-card, .footer-card, .teaser-card {
     padding: 1.5rem !important; /* Give more width space to inputs and text on small mobile screens */
+  }
+  .hero-buttons-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  .hero-buttons-container .btn {
+    width: 100% !important;
+    max-width: 290px !important;
+    min-width: 0 !important;
+    justify-content: center !important;
   }
 }
