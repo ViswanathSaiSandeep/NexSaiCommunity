@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import logo from '../assets/NexSai Logo.png';
 
-export default function Navbar() {
+export default function Navbar({ theme, setTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -52,7 +52,7 @@ export default function Navbar() {
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      const navbarHeight = 80;
+      const navbarHeight = 72;
       const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - navbarHeight + 35;
       window.scrollTo({
@@ -64,7 +64,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`glass-nav ${scrolled ? 'nav-scrolled' : ''}`} style={{ height: '80px', display: 'flex', alignItems: 'center' }}>
+      <nav className={`glass-nav ${scrolled ? 'nav-scrolled' : ''}`} style={{ height: '72px', display: 'flex', alignItems: 'center' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           {/* Logo Brand */}
           <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
@@ -123,22 +123,32 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Mobile Nav Toggle */}
-          <button 
-            onClick={toggleMenu} 
-            style={{ 
-              background: 'none', 
-              border: 'none', 
-              color: 'var(--text-primary)', 
-              fontSize: '1.5rem', 
-              cursor: 'pointer',
-              display: 'none',
-              alignItems: 'center'
-            }}
-            className="mobile-toggle-btn"
-          >
-            {isOpen ? <FiX /> : <FiMenu />}
-          </button>
+          {/* Controls Container (Theme Toggle + Mobile Menu Button) */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="theme-toggle-btn"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
+            </button>
+
+            <button 
+              onClick={toggleMenu} 
+              style={{ 
+                background: 'none', 
+                border: 'none', 
+                color: 'var(--text-primary)', 
+                fontSize: '1.5rem', 
+                cursor: 'pointer',
+                display: 'none',
+                alignItems: 'center'
+              }}
+              className="mobile-toggle-btn"
+            >
+              {isOpen ? <FiX /> : <FiMenu />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -146,20 +156,24 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, y: -12, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -12, scale: 0.97 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             style={{
               position: 'fixed',
-              top: '80px',
-              left: 0,
-              right: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.95)',
-              backdropFilter: 'blur(20px)',
-              borderBottom: '1px solid var(--border-color)',
+              top: scrolled ? 'calc(0.75rem + 76px)' : 'calc(1.25rem + 76px)',
+              left: scrolled ? '0.75rem' : '1.25rem',
+              right: scrolled ? '0.75rem' : '1.25rem',
+              backgroundColor: theme === 'dark' ? 'rgba(6, 8, 12, 0.96)' : 'rgba(235, 240, 246, 0.96)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+              border: '1px solid var(--m3-outline-variant)',
+              borderRadius: 'var(--m3-radius-xl)',
               zIndex: 99,
-              padding: '2rem 1.25rem'
+              padding: '1.75rem',
+              boxShadow: '0 12px 40px var(--m3-card-shadow)',
+              transition: 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1), left 0.4s cubic-bezier(0.16, 1, 0.3, 1), right 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
           >
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
@@ -196,9 +210,31 @@ export default function Navbar() {
           }
         }
         .nav-scrolled {
-          background: rgba(0, 0, 0, 0.85) !important;
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-          border-color: rgba(255, 255, 255, 0.05) !important;
+          background: var(--nav-scrolled-bg) !important;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+          border-color: var(--m3-outline) !important;
+        }
+        .theme-toggle-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: var(--surface-container-low);
+          border: 1px solid var(--m3-outline);
+          color: var(--text-primary);
+          cursor: pointer;
+          transition: var(--transition-fast);
+        }
+        .theme-toggle-btn:hover {
+          background-color: var(--surface-container-high);
+          border-color: var(--accent-blue);
+          color: var(--accent-blue);
+          transform: scale(1.05);
+        }
+        .theme-toggle-btn:active {
+          transform: scale(0.95);
         }
       `}</style>
     </>

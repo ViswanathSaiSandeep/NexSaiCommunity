@@ -152,8 +152,8 @@ export default function Hero() {
           bottom: 0;
           background-size: 80px 80px;
           background-image: 
-            linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
           mask-image: radial-gradient(circle 50% at 50% 50%, #000 40%, transparent 100%);
           -webkit-mask-image: radial-gradient(circle 50% at 50% 50%, #000 40%, transparent 100%);
           z-index: 1;

@@ -13,6 +13,14 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [showScrollBtn, setShowScrollBtn] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     const handleScrollBtnVisibility = () => {
@@ -37,7 +45,7 @@ export default function App() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
       {/* Navigation Header */}
-      <Navbar />
+      <Navbar theme={theme} setTheme={setTheme} />
 
       {/* Main Content Sections */}
       <main style={{ flexGrow: 1 }}>
@@ -45,7 +53,7 @@ export default function App() {
         <About />
         <FocusAreas />
         <Founder />
-        <SocialLinks />
+        <SocialLinks theme={theme} />
         <BlogComingSoon />
         <Contact />
       </main>

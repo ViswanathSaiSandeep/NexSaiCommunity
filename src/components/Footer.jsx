@@ -9,8 +9,8 @@ export default function Footer() {
       name: 'Threads', 
       url: 'https://threads.net/@nexsaicommunity', 
       icon: (
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.36 12.3c-.29.41-.67.75-1.14 1.01-.47.26-1 .39-1.59.39-1.12 0-2.03-.37-2.71-1.1-.68-.74-1.02-1.74-1.02-3.01v-.18c0-1.28.34-2.28 1.02-3 .68-.73 1.58-1.1 2.71-1.1.84 0 1.54.21 2.11.63.57.42.92 1.02 1.05 1.79l-1.39.26c-.08-.43-.27-.77-.57-1.01-.3-.24-.69-.36-1.17-.36-.66 0-1.19.23-1.58.7-.39.47-.59 1.15-.59 2.05v.19c0 .91.2 1.59.59 2.06.39.47.92.71 1.58.71.43 0 .79-.11 1.08-.34.29-.23.47-.56.54-.98h-1.62v-1.19h2.92v3.31h-1.09l-.15-.71z" />
+        <svg viewBox="0 0 960 960" width="18" height="18" fill="currentColor">
+          <path d="M404.63 392.13c-11.92-7.93-51.53-35.49-51.53-35.49 33.4-47.88 77.46-66.52 138.36-66.52 43.07 0 79.64 14.52 105.75 42 26.12 27.49 41.02 66.8 44.41 117.07 14.48 6.07 27.85 13.22 39.99 21.4 48.96 33 75.92 82.34 75.92 138.91 0 120.23-98.34 224.67-276.35 224.67-152.84 0-311.63-89.11-311.63-354.45 0-263.83 153.81-353.92 311.2-353.92 72.68 0 243.16 10.76 307.27 222.94l-60.12 15.63C678.33 213.2 574.4 189.14 479.11 189.14c-157.52 0-246.62 96.13-246.62 300.65 0 183.38 99.59 280.8 248.71 280.8 122.68 0 214.15-63.9 214.15-157.44 0-63.66-53.37-94.14-56.1-94.14-10.42 54.62-38.36 146.5-161.01 146.5-71.46 0-133.07-49.47-133.07-114.29 0-92.56 87.61-126.06 156.8-126.06 25.91 0 57.18 1.75 73.46 5.07 0-28.21-23.81-76.49-83.96-76.49-55.15-.01-69.14 17.92-86.84 38.39zm105.8 96.25c-90.13 0-101.79 38.51-101.79 62.7 0 38.86 46.07 51.74 70.65 51.74 45.06 0 91.35-12.52 98.63-107.31-22.85-5.14-39.88-7.13-67.49-7.13z"/>
         </svg>
       )
     },
@@ -41,7 +41,7 @@ export default function Footer() {
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      const navbarHeight = 80;
+      const navbarHeight = 72;
       const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - navbarHeight + 35;
       window.scrollTo({
@@ -52,12 +52,12 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ backgroundColor: '#020202', borderTop: '1px solid var(--border-color)', padding: '5rem 0 3rem 0' }}>
+    <footer style={{ backgroundColor: 'var(--bg-primary)', borderTop: '1px solid var(--m3-outline)', padding: '5rem 0 4rem 0' }}>
       <div className="container">
         {/* Main Footer Content */}
-        <div className="footer-grid">
-          {/* Brand Info */}
-          <div className="footer-brand">
+        <div className="footer-cards-grid">
+          {/* Brand Info Card */}
+          <div className="footer-card brand-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <img 
                 src={logo} 
@@ -74,13 +74,23 @@ export default function Footer() {
                 NEXSAI <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>Community</span>
               </span>
             </div>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '2rem' }}>
               Where Tech Meets Tomorrow. A community dedicated to AI developments, smartphone innovations, mobile operating systems, and technological literacy.
             </p>
+            
+            {/* Inline Copyright and Credits (pinned to bottom of Brand Card) */}
+            <div style={{ marginTop: 'auto', borderTop: '1px solid var(--m3-outline)', paddingTop: '1.25rem' }}>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', margin: 0 }}>
+                &copy; 2026 NEXSAI Community. All Rights Reserved.
+              </p>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '4px', marginBottom: 0 }} className="founder-credit">
+                Founded by <a href="https://vsaisandeep.netlify.app" target="_blank" rel="noopener noreferrer">VISWANATH SAI SANDEEP</a>
+              </p>
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="footer-nav">
+          {/* Quick Links Card */}
+          <div className="footer-card links-card">
             <h4 className="footer-title">Quick Links</h4>
             <ul className="footer-links">
               {quickLinks.map((link) => (
@@ -93,13 +103,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Socials Link List */}
-          <div className="footer-socials">
+          {/* Socials Link List Card */}
+          <div className="footer-card socials-card">
             <h4 className="footer-title">Join The Community</h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '1.25rem' }}>
-              Subscribe and engage with us across our platforms.
+            <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+              Subscribe and engage with us across our official social channels to stay updated.
             </p>
-            <div className="social-icon-row">
+            <div className="social-icon-row" style={{ marginTop: 'auto' }}>
               {socialLinks.map((social) => (
                 <a 
                   key={social.name} 
@@ -115,28 +125,32 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        {/* Footer Bottom Credits & Copyright */}
-        <div className="footer-bottom">
-          <p className="copyright-text">
-            &copy; 2026 NEXSAI Community. All Rights Reserved.
-          </p>
-          <p className="founder-credit">
-            Founded by <a href="https://vsaisandeep.netlify.app" target="_blank" rel="noopener noreferrer">VISWANATH SAI SANDEEP</a>
-          </p>
-        </div>
       </div>
 
       <style>{`
-        .footer-grid {
+        .footer-cards-grid {
           display: grid;
-          grid-template-columns: 2fr 1fr 1.5fr;
-          gap: 4rem;
-          margin-bottom: 4rem;
+          grid-template-columns: 1.4fr 0.9fr 1.1fr;
+          gap: 1.5rem;
+          align-items: stretch;
         }
 
-        .footer-brand {
-          max-width: 380px;
+        .footer-card {
+          background-color: var(--surface-container);
+          border: 1px solid var(--m3-outline);
+          border-radius: var(--m3-radius-xl);
+          padding: 2.25rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          transition: var(--transition-smooth);
+          height: 100%;
+        }
+
+        .footer-card:hover {
+          border-color: var(--m3-outline-variant);
+          transform: translateY(-4px);
+          box-shadow: 0 10px 25px var(--m3-card-shadow);
         }
 
         .footer-title {
@@ -151,9 +165,9 @@ export default function Footer() {
           list-style: none;
           padding: 0;
           margin: 0;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 0.75rem 1.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.85rem;
         }
 
         .footer-links a {
@@ -161,12 +175,26 @@ export default function Footer() {
           text-decoration: none;
           font-size: 0.95rem;
           transition: var(--transition-fast);
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+        }
+
+        .footer-links a::before {
+          content: "→";
+          font-size: 0.85rem;
+          color: var(--accent-blue);
+          opacity: 0.7;
+          transition: var(--transition-fast);
         }
 
         .footer-links a:hover {
           color: var(--text-primary);
-          transform: translateX(2px);
-          display: inline-block;
+          padding-left: 4px;
+        }
+
+        .footer-links a:hover::before {
+          opacity: 1;
         }
 
         .social-icon-row {
@@ -179,30 +207,20 @@ export default function Footer() {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 38px;
-          height: 38px;
-          border-radius: 8px;
-          background-color: rgba(255, 255, 255, 0.02);
-          border: 1px solid var(--border-color);
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background-color: var(--surface-container-low);
+          border: 1px solid var(--m3-outline);
           color: var(--text-secondary);
-          transition: var(--transition-fast);
+          transition: var(--transition-smooth);
         }
 
         .social-footer-icon:hover {
-          background-color: rgba(255, 255, 255, 0.05);
+          background-color: var(--accent-blue-glow);
           color: var(--accent-blue);
-          border-color: rgba(0, 123, 255, 0.3);
-          transform: translateY(-2px);
-        }
-
-        .footer-bottom {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding-top: 2rem;
-          border-top: 1px solid var(--border-color);
-          font-size: 0.9rem;
-          color: var(--text-muted);
+          border-color: var(--accent-blue);
+          transform: translateY(-3px) scale(1.08);
         }
 
         .founder-credit a {
@@ -217,17 +235,17 @@ export default function Footer() {
         }
 
         @media (max-width: 900px) {
-          .footer-grid {
+          .footer-cards-grid {
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 1.5rem;
           }
-          .footer-brand, .footer-nav, .footer-socials {
-            max-width: 100%;
+          .footer-card {
+            padding: 1.75rem;
           }
-          .footer-bottom {
-            flex-direction: column;
-            gap: 1rem;
-            text-align: center;
+          .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem 1.5rem;
           }
         }
       `}</style>

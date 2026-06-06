@@ -50,7 +50,7 @@ export default function BlogComingSoon() {
             </div>
 
             {/* Headers */}
-            <h2 className="coming-soon-title">NEXSAI Blogs</h2>
+            <h2 className="coming-soon-title">NEXSAI <span className="title-highlight">Blogs</span></h2>
             <p className="coming-soon-description">
               We are currently building a dedicated technology news and blogging platform. 
               Soon, you will find comprehensive guides, smartphone reviews, AI reports, Custom ROM walk-throughs, 
@@ -175,6 +175,11 @@ export default function BlogComingSoon() {
           -webkit-text-fill-color: transparent;
         }
 
+        .title-highlight {
+          color: var(--accent-blue);
+          -webkit-text-fill-color: var(--accent-blue) !important;
+        }
+
         .coming-soon-description {
           font-size: 1.15rem;
           color: var(--text-secondary);
@@ -195,12 +200,14 @@ export default function BlogComingSoon() {
           border: 1px solid var(--m3-outline);
           border-radius: var(--m3-radius-lg); /* 16px */
           padding: 4px;
-          transition: var(--transition-fast);
+          transition: border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                      background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .input-wrapper:focus-within {
           border-color: var(--accent-blue);
-          box-shadow: 0 0 0 1px var(--accent-blue);
+          box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.24);
           background-color: var(--surface-container);
         }
 
@@ -319,6 +326,15 @@ export default function BlogComingSoon() {
             border-radius: var(--m3-radius-lg);
             padding: 0.9rem 1rem 0.9rem 3.25rem;
             width: 100%;
+            transition: border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                        background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .notify-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background-color: var(--surface-container);
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.24);
           }
           .notify-btn {
             width: 100%;

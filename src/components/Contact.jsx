@@ -89,8 +89,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Email Address</span>
-                  <a href="mailto:vsaisandeep17@gmail.com" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 600, transition: 'var(--transition-fast)' }} className="email-link">
-                    vsaisandeep17@gmail.com
+                  <a href="mailto:nexsaicommunity@gmail.com" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 600, transition: 'var(--transition-fast)' }} className="email-link">
+                    nexsaicommunity@gmail.com
                   </a>
                 </div>
               </div>
