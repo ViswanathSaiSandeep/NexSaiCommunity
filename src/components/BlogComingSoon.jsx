@@ -70,17 +70,19 @@ export default function BlogComingSoon() {
                     style={{ position: 'relative' }}
                   >
                     <div className="input-wrapper">
-                      <FiMail className="mail-icon" />
-                      <input 
-                        type="email" 
-                        placeholder="Enter your email for updates..." 
-                        value={email}
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                          if(error) setError('');
-                        }}
-                        className="notify-input"
-                      />
+                      <div className="input-field-container" style={{ position: 'relative', flex: 1, width: '100%' }}>
+                        <FiMail className="mail-icon" />
+                        <input 
+                          type="email" 
+                          placeholder="Enter your email for updates..." 
+                          value={email}
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                            if(error) setError('');
+                          }}
+                          className="notify-input"
+                        />
+                      </div>
                       <button type="submit" className="notify-btn">
                         <FiBell /> Notify Me
                       </button>
