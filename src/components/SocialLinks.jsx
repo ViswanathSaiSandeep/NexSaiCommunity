@@ -13,7 +13,7 @@ export default function SocialLinks({ theme }) {
       icon: <FaTelegramPlane size={24} />,
       color: '#0088cc',
       prominent: true,
-      description: 'Join our primary community hub for instant announcements, tech news, ROM updates, and interactive chat.'
+      description: 'Join our primary community hub for instant announcements, latest tech news, AI updates, and interactive chat.'
     },
     {
       name: 'Instagram',
@@ -22,7 +22,7 @@ export default function SocialLinks({ theme }) {
       icon: <FaInstagram size={24} />,
       color: '#e1306c',
       prominent: true,
-      description: 'Follow our official page for daily tech infographics, emerging tech reels, android tips, and community updates.'
+      description: 'Follow our official page for daily tech infographics, emerging tech reels, AI tool tips, and community updates.'
     },
     {
       name: 'X (Twitter)',

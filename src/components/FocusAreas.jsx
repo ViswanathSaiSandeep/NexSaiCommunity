@@ -9,29 +9,29 @@ export default function FocusAreas() {
       desc: 'Exploring developments in machine learning, deep learning, LLMs, neural engines, and AI applications shaping everyday digital interfaces.'
     },
     {
+      title: 'Latest Tech News',
+      icon: <FiCompass size={24} />,
+      desc: 'Tracking updates, product releases, and shifting paradigms across computing ecosystems, mobile tech, and global innovators.'
+    },
+    {
+      title: 'AI Guides & Tutorials',
+      icon: <FiLayers size={24} />,
+      desc: 'Practical step-by-step guides, how-to tutorials, and walkthroughs demonstrating how to leverage artificial intelligence tools.'
+    },
+    {
       title: 'Smartphones & Tech',
       icon: <FiSmartphone size={24} />,
-      desc: 'In-depth analyses, hardware specifications, camera advancements, screen technologies, and user experience updates in consumer mobile telephony.'
+      desc: 'In-depth analyses, hardware specifications, camera advancements, screen technologies, and user experience reviews.'
     },
     {
-      title: 'Android Ecosystem',
-      icon: <FiLayers size={24} />,
-      desc: 'Following custom ROMs, kernels, launchers, system adjustments, developer betas, and open-source operating system improvements.'
-    },
-    {
-      title: 'Xiaomi Coverage',
+      title: 'AI Tools & Software',
       icon: <FiZap size={24} />,
-      desc: 'Dedicated news on HyperOS, MIUI builds, ecosystem devices, product announcements, global releases, and firmware updates.'
-    },
-    {
-      title: 'Technology News',
-      icon: <FiCompass size={24} />,
-      desc: 'Tracking updates and shifting paradigms across computing ecosystems, cloud networks, cybersecurity, and global tech brands.'
+      desc: 'Hands-on evaluations, productivity software comparisons, and utility guides to streamline workflows with modern tools.'
     },
     {
       title: 'Tech Facts & Trivia',
       icon: <FiGrid size={24} />,
-      desc: 'Delivering curated technical insights, histories, computing milestones, hardware records, and smartphone facts for our community.'
+      desc: 'Delivering curated technical insights, histories, computing milestones, hardware records, and technology facts.'
     }
   ];
 

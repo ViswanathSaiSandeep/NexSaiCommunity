@@ -53,8 +53,8 @@ export default function BlogComingSoon() {
             <h2 className="coming-soon-title">NEXSAI <span className="title-highlight">Blogs</span></h2>
             <p className="coming-soon-description">
               We are currently building a dedicated technology news and blogging platform. 
-              Soon, you will find comprehensive guides, smartphone reviews, AI reports, Custom ROM walk-throughs, 
-              Xiaomi updates, and emerging technology analysis.
+              Soon, you will find comprehensive AI guides, latest technology news, software reviews, 
+              tech tutorials, and emerging technology analysis.
             </p>
 
             {/* Email Notification Form */}
@@ -117,10 +117,10 @@ export default function BlogComingSoon() {
 
             {/* Future Features list */}
             <div className="features-preview">
+              <div className="feature-item"><span>✦</span> AI Guides & How-Tos</div>
+              <div className="feature-item"><span>✦</span> Latest Tech News</div>
               <div className="feature-item"><span>✦</span> AI Insights</div>
-              <div className="feature-item"><span>✦</span> Smartphone Reviews</div>
-              <div className="feature-item"><span>✦</span> Android OS Tweaks</div>
-              <div className="feature-item"><span>✦</span> Xiaomi Updates</div>
+              <div className="feature-item"><span>✦</span> Tech Reviews</div>
             </div>
           </motion.div>
         </div>

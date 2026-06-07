@@ -80,7 +80,7 @@ export default function Founder() {
               </p>
               <p className="founder-bio-text">
                 NEXSAI Community represents the culmination of this passion—a community built for technophiles 
-                seeking clarity, updates, and deep analytical discussions on upcoming technologies, Xiaomi's HyperOS, 
+                seeking clarity, updates, and deep analytical discussions on upcoming technologies, latest tech news, 
                 and the AI revolution.
               </p>
 
