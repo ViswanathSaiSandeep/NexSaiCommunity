@@ -7,6 +7,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,9 +43,33 @@ export default function Contact() {
       return;
     }
 
-    // Success state
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    // Encode form body
+    const formBody = new URLSearchParams({
+      'form-name': 'contact',
+      ...formData
+    }).toString();
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formBody
+    })
+      .then((res) => {
+        if (res.ok) {
+          setSubmitted(true);
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          throw new Error('Submission failed');
+        }
+      })
+      .catch((err) => {
+        setErrors({ submit: 'Failed to send message. Please try again or email us directly.' });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   const handleSocialClick = (url) => {
@@ -183,15 +208,18 @@ export default function Contact() {
                     {errors.message && <span className="field-error">{errors.message}</span>}
                   </div>
 
+                  {errors.submit && <span className="field-error" style={{ textAlign: 'center', display: 'block', margin: '0.25rem 0' }}>{errors.submit}</span>}
+
                   {/* Submit Button */}
                   <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={isSubmitting ? {} : { scale: 1.02 }}
+                    whileTap={isSubmitting ? {} : { scale: 0.98 }}
                     type="submit" 
                     className="btn btn-primary"
-                    style={{ width: '100%', marginTop: '0.5rem' }}
+                    disabled={isSubmitting}
+                    style={{ width: '100%', marginTop: '0.5rem', opacity: isSubmitting ? 0.75 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
                   >
-                    <FiSend /> Send Message
+                    {isSubmitting ? 'Sending...' : <><FiSend /> Send Message</>}
                   </motion.button>
                 </motion.form>
               ) : (
