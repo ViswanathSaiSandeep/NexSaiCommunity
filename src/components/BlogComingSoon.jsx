@@ -129,14 +129,14 @@ export default function BlogComingSoon() {
       <style>{`
         .teaser-card {
           background-color: var(--surface-container);
-          border: 1px solid var(--m3-outline);
+          border: 1px solid var(--m3-outline-variant);
           border-radius: var(--m3-radius-xl); /* M3 XL Rounded corners (28px) */
           padding: 4.5rem 3rem;
           text-align: center;
           position: relative;
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 8px 40px rgba(0, 123, 255, 0.12), 0 0 80px rgba(0, 123, 255, 0.06);
         }
 
         .launching-badge {
@@ -175,6 +175,8 @@ export default function BlogComingSoon() {
           background: linear-gradient(180deg, #FFFFFF 0%, #B0B0B0 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
         }
 
         .title-highlight {
@@ -238,7 +240,7 @@ export default function BlogComingSoon() {
           background-color: var(--accent-blue);
           border: none;
           border-radius: var(--m3-radius-md); /* 12px */
-          color: var(--text-primary);
+          color: #FFFFFF;
           font-weight: 600;
           padding: 0 1.5rem;
           cursor: pointer;

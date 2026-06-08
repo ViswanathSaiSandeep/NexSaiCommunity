@@ -240,36 +240,39 @@ export default function Contact() {
                     textAlign: 'center',
                     padding: '4rem 2rem',
                     gap: '1.5rem',
-                    borderColor: 'var(--accent-blue)',
-                    boxShadow: '0 10px 40px rgba(0, 123, 255, 0.15)'
+                    borderColor: 'var(--m3-outline-variant)',
+                    boxShadow: '0 8px 40px rgba(0, 123, 255, 0.12), 0 0 80px rgba(0, 123, 255, 0.06)'
                   }}
                 >
                   <div style={{
                     width: '70px',
                     height: '70px',
                     borderRadius: '50%',
-                    backgroundColor: 'rgba(0, 123, 255, 0.08)',
+                    background: 'radial-gradient(circle, rgba(0, 123, 255, 0.15) 0%, rgba(0, 123, 255, 0.04) 100%)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'var(--accent-blue)',
-                    border: '1px solid rgba(0, 123, 255, 0.15)'
+                    border: '1px solid var(--m3-outline-variant)',
+                    boxShadow: '0 0 24px rgba(0, 123, 255, 0.15)'
                   }}>
                     <FiCheckCircle size={36} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>Message Sent!</h3>
+                    <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-primary)' }}>Message Sent!</h3>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
                       Thank you for contacting NEXSAI Community. We have received your inquiry and will respond to you shortly.
                     </p>
                   </div>
-                  <button 
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => setSubmitted(false)}
                     className="btn btn-secondary"
-                    style={{ marginTop: '1rem', width: '150px' }}
+                    style={{ marginTop: '1rem', minWidth: '160px' }}
                   >
                     Send Another
-                  </button>
+                  </motion.button>
                 </motion.div>
               )}
             </AnimatePresence>
