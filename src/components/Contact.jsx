@@ -161,9 +161,12 @@ export default function Contact() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onSubmit={handleFormSubmit}
+                  name="contact"
+                  data-netlify="true"
                   className="contact-form-card"
                   style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}
                 >
+                  <input type="hidden" name="form-name" value="contact" />
                   {/* Name field */}
                   <div className="form-group">
                     <label className="form-label" htmlFor="name"><FiUser style={{ marginRight: '6px', verticalAlign: 'middle' }} /> Name</label>
