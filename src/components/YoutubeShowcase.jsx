@@ -5,8 +5,8 @@ import { FiExternalLink } from 'react-icons/fi';
 export default function YoutubeShowcase() {
   const channelUrl = 'https://www.youtube.com/@NEXSAICommunity';
   const videoId = '5L3sSBF4BuI';
-  const videoTitle = 'NEXSAI Community Video';
-  const videoDesc = 'Explore our latest reviews, custom setups, smartphone breakdowns, and technology guides on our official YouTube channel.';
+  const videoTitle = "I Asked Xiaomi's MiMo Code AI to Build a Spotify Clone in 10 Minutes";
+  const videoDesc = "Watch as we test Xiaomi's new AI-powered coding agent, MiMo Code, by challenging it to build a Spotify-inspired web application from scratch using HTML, CSS, and JavaScript. We review the generated code, check mobile responsive designs, and give our final verdict.";
 
   return (
     <section id="videos" style={{ position: 'relative', overflow: 'hidden' }}>
