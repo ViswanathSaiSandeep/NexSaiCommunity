@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import FocusAreas from './components/FocusAreas';
+import YoutubeShowcase from './components/YoutubeShowcase';
 import Founder from './components/Founder';
 import SocialLinks from './components/SocialLinks';
 import BlogComingSoon from './components/BlogComingSoon';
@@ -52,6 +53,7 @@ export default function App() {
         <Hero />
         <About />
         <FocusAreas />
+        <YoutubeShowcase />
         <Founder />
         <SocialLinks theme={theme} />
         <BlogComingSoon />

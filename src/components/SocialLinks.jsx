@@ -1,11 +1,20 @@
 import { motion } from 'framer-motion';
-import { FaTelegramPlane, FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import { FaTelegramPlane, FaInstagram, FaFacebookF, FaWhatsapp, FaYoutube } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 export default function SocialLinks({ theme }) {
   const isLight = theme === 'light';
 
   const socials = [
+    {
+      name: 'YouTube',
+      handle: '@NEXSAICommunity',
+      url: 'https://www.youtube.com/@NEXSAICommunity',
+      icon: <FaYoutube size={24} />,
+      color: '#ff0000',
+      prominent: true,
+      description: 'Subscribe to our official YouTube channel for high-quality tech videos, smartphone reviews, AI guides, and technology breakdowns.'
+    },
     {
       name: 'Telegram',
       handle: '@nexsaicommunity',
@@ -121,11 +130,10 @@ export default function SocialLinks({ theme }) {
                 boxShadow: `0 15px 35px -10px ${social.color}25, 0 0 1px 1px ${social.color}20`
               }}
               onClick={() => window.open(social.url, '_blank', 'noopener,noreferrer')}
-              className="m3-card social-cell standard-cell"
+              className={`m3-card social-cell ${social.name === 'YouTube' ? 'featured-cell' : 'standard-cell'}`}
               style={{
                 cursor: 'pointer',
                 borderRadius: 'var(--m3-radius-xl)', /* Material 3 28px rounded corners */
-                padding: '2.25rem',
                 position: 'relative',
                 overflow: 'hidden',
                 display: 'flex',
@@ -192,11 +200,27 @@ export default function SocialLinks({ theme }) {
           gap: 1.5rem;
           max-width: 980px;
           margin: 0 auto;
+          width: 100%;
+        }
+
+        .social-cell {
+          padding: 2.25rem;
+        }
+
+        .social-cell span, .social-cell p, .social-cell h3 {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
         }
 
         .standard-cell {
           grid-column: span 1;
           min-height: 220px;
+        }
+
+        .featured-cell {
+          grid-column: span 3;
+          min-height: 180px;
         }
 
         .social-cell:hover .arrow-indicator {
@@ -211,14 +235,23 @@ export default function SocialLinks({ theme }) {
           .standard-cell {
             min-height: auto;
           }
+          .featured-cell {
+            grid-column: span 2;
+          }
+          .social-cell {
+            padding: 1.75rem;
+          }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .socials-geometric-grid {
             grid-template-columns: 1fr;
           }
-          .standard-cell {
-            padding: 1.75rem !important;
+          .standard-cell, .featured-cell {
+            grid-column: span 1;
+          }
+          .social-cell {
+            padding: 1.5rem;
           }
         }
       `}</style>

@@ -12,6 +12,7 @@ export default function Navbar({ theme, setTheme }) {
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
     { name: 'Focus Areas', href: '#focus-areas', id: 'focus-areas' },
+    { name: 'Videos', href: '#videos', id: 'videos' },
     { name: 'Founder', href: '#founder', id: 'founder' },
     { name: 'Blogs', href: '#blogs', id: 'blogs' },
     { name: 'Contact', href: '#contact', id: 'contact' }

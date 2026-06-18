@@ -1,8 +1,9 @@
-import { FaTelegramPlane, FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import { FaTelegramPlane, FaInstagram, FaFacebookF, FaWhatsapp, FaYoutube } from 'react-icons/fa';
 import logo from '../assets/NexSai Logo.png';
 
 export default function Footer() {
   const socialLinks = [
+    { name: 'YouTube', url: 'https://www.youtube.com/@NEXSAICommunity', icon: <FaYoutube size={18} /> },
     { name: 'Telegram', url: 'https://t.me/nexsaicommunity', icon: <FaTelegramPlane size={18} /> },
     { name: 'Instagram', url: 'https://instagram.com/nexsaicommunity', icon: <FaInstagram size={18} /> },
     { 
@@ -31,6 +32,7 @@ export default function Footer() {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Focus Areas', href: '#focus-areas' },
+    { name: 'Videos', href: '#videos' },
     { name: 'Founder', href: '#founder' },
     { name: 'Blogs', href: '#blogs' },
     { name: 'Contact', href: '#contact' }

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaTelegramPlane, FaInstagram } from 'react-icons/fa';
+import { FaTelegramPlane, FaInstagram, FaYoutube } from 'react-icons/fa';
 import logo from '../assets/NexSai Logo.png';
 
 export default function Hero() {
@@ -119,6 +119,21 @@ export default function Hero() {
                 width: '100%'
               }}
             >
+              <motion.button 
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleCTAClick('https://www.youtube.com/@NEXSAICommunity')}
+                className="btn btn-secondary"
+                style={{ 
+                  minWidth: '190px', 
+                  borderColor: 'rgba(255, 0, 0, 0.3)', 
+                  backgroundColor: 'rgba(255, 0, 0, 0.05)',
+                  color: 'var(--text-primary)'
+                }}
+              >
+                <FaYoutube size={16} style={{ color: '#FF0000' }} /> Subscribe on YouTube
+              </motion.button>
+
               <motion.button 
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
