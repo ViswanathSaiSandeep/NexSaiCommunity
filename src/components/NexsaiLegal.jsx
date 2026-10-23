@@ -1,30 +1,30 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FiShield, 
-  FiUser, 
-  FiDatabase, 
-  FiActivity, 
-  FiBookmark, 
-  FiMessageSquare, 
-  FiCpu, 
-  FiBell, 
-  FiSmartphone, 
-  FiHardDrive, 
-  FiTag, 
-  FiCreditCard, 
-  FiCloud, 
-  FiLayers, 
-  FiExternalLink, 
-  FiClock, 
-  FiTrash2, 
-  FiSliders, 
-  FiHeart, 
-  FiRefreshCw, 
-  FiMail, 
-  FiCheckCircle, 
-  FiSun, 
-  FiMoon, 
+import {
+  FiShield,
+  FiUser,
+  FiDatabase,
+  FiActivity,
+  FiBookmark,
+  FiMessageSquare,
+  FiCpu,
+  FiBell,
+  FiSmartphone,
+  FiHardDrive,
+  FiTag,
+  FiCreditCard,
+  FiCloud,
+  FiLayers,
+  FiExternalLink,
+  FiClock,
+  FiTrash2,
+  FiSliders,
+  FiHeart,
+  FiRefreshCw,
+  FiMail,
+  FiCheckCircle,
+  FiSun,
+  FiMoon,
   FiArrowUp,
   FiSearch,
   FiXCircle,
@@ -464,7 +464,7 @@ export default function NexsaiLegal({ theme, setTheme }) {
               <span className="tier-badge">Spark</span>
               <div className="tier-price">₹49 <span className="tier-period">per month</span></div>
               <ul className="tier-features">
-                <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> 50 subscription AI credits per billing period</li>
+                <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> 50 NEX per billing period</li>
                 <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> Ad-free experience</li>
               </ul>
             </div>
@@ -474,7 +474,7 @@ export default function NexsaiLegal({ theme, setTheme }) {
               <span className="tier-badge popular">Pro</span>
               <div className="tier-price">₹99 <span className="tier-period">per month</span></div>
               <ul className="tier-features">
-                <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> 100 subscription AI credits per billing period</li>
+                <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> 100 NEX per billing period</li>
                 <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> Ad-free experience</li>
               </ul>
             </div>
@@ -553,7 +553,7 @@ export default function NexsaiLegal({ theme, setTheme }) {
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
             NEXSAI One uses Google Firebase to provide core application functionality.
           </p>
-          
+
           <div className="policy-subcard" style={{ marginBottom: '1.25rem' }}>
             <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.6rem' }}>
               Firebase services may include:
@@ -879,33 +879,33 @@ export default function NexsaiLegal({ theme, setTheme }) {
   const filteredSections = searchQuery.trim() === ''
     ? sections
     : sections.filter(sec => {
-        const query = searchQuery.toLowerCase();
-        return (
-          sec.title.toLowerCase().includes(query) ||
-          sec.num.includes(query)
-        );
-      });
+      const query = searchQuery.toLowerCase();
+      return (
+        sec.title.toLowerCase().includes(query) ||
+        sec.num.includes(query)
+      );
+    });
 
   return (
     <div className="privacy-page-wrapper">
       {/* Dynamic Glow Blobs */}
-      <div 
-        className="glow-blob" 
-        style={{ top: '0', left: '10%', opacity: 0.12, background: 'radial-gradient(circle, var(--accent-blue) 0%, transparent 70%)' }} 
+      <div
+        className="glow-blob"
+        style={{ top: '0', left: '10%', opacity: 0.12, background: 'radial-gradient(circle, var(--accent-blue) 0%, transparent 70%)' }}
       />
-      <div 
-        className="glow-blob" 
-        style={{ top: '800px', right: '5%', opacity: 0.08, background: 'radial-gradient(circle, var(--accent-blue) 0%, transparent 70%)' }} 
+      <div
+        className="glow-blob"
+        style={{ top: '800px', right: '5%', opacity: 0.08, background: 'radial-gradient(circle, var(--accent-blue) 0%, transparent 70%)' }}
       />
 
       {/* Standalone Header */}
       <header className="privacy-header">
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <a href="/" className="privacy-brand-link" title="Return to NEXSAI Community">
-            <img 
-              src={logo} 
-              alt="NEXSAI Community Logo" 
-              style={{ height: '36px', width: '36px', objectFit: 'contain', borderRadius: '8px' }} 
+            <img
+              src={logo}
+              alt="NEXSAI Community Logo"
+              style={{ height: '36px', width: '36px', objectFit: 'contain', borderRadius: '8px' }}
             />
             <span className="brand-text">
               NEXSAI <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>Community</span>
@@ -956,7 +956,7 @@ export default function NexsaiLegal({ theme, setTheme }) {
           {/* Introductory Preamble Card */}
           <div className="preamble-card">
             <p style={{ fontSize: '1.02rem', lineHeight: 1.7, color: 'var(--text-primary)', marginBottom: '0.85rem' }}>
-              <strong>NEXSAI One</strong> is developed and operated by <strong>Viswanath Sai Sandeep</strong> ("we", "us", "our", or "NEXSAI One").
+              <strong>NEXSAI One</strong> is developed and operated by <strong>Viswanath Sai Sandeep</strong>.
             </p>
             <p style={{ fontSize: '0.98rem', lineHeight: 1.7, color: 'var(--text-secondary)', marginBottom: '0.85rem' }}>
               This Privacy Policy explains how NEXSAI One collects, uses, stores, processes, and protects information when you use the NEXSAI One mobile application and related services.
@@ -971,7 +971,7 @@ export default function NexsaiLegal({ theme, setTheme }) {
         <div className="search-filter-box">
           <div className="search-input-wrapper">
             <FiSearch size={18} style={{ color: 'var(--text-muted)' }} />
-            <input 
+            <input
               type="text"
               placeholder="Search sections (e.g., Information, Gemini, AdMob, Subscriptions, Deletion)..."
               value={searchQuery}
@@ -979,7 +979,7 @@ export default function NexsaiLegal({ theme, setTheme }) {
               className="privacy-search-input"
             />
             {searchQuery && (
-              <button 
+              <button
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search"
                 style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
@@ -993,8 +993,8 @@ export default function NexsaiLegal({ theme, setTheme }) {
         {/* Table of Contents Quick Nav */}
         <div className="toc-chips-scroll">
           {sections.map((sec) => (
-            <a 
-              key={sec.id} 
+            <a
+              key={sec.id}
               href={`#${sec.id}`}
               className="toc-chip"
               onClick={(e) => {
@@ -1020,7 +1020,7 @@ export default function NexsaiLegal({ theme, setTheme }) {
               <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
                 No sections matched "<strong>{searchQuery}</strong>"
               </p>
-              <button 
+              <button
                 onClick={() => setSearchQuery('')}
                 className="clear-search-btn"
               >
@@ -1029,9 +1029,9 @@ export default function NexsaiLegal({ theme, setTheme }) {
             </div>
           ) : (
             filteredSections.map((sec) => (
-              <section 
-                key={sec.id} 
-                id={sec.id} 
+              <section
+                key={sec.id}
+                id={sec.id}
                 className="policy-section-card"
               >
                 <div className="section-card-header">

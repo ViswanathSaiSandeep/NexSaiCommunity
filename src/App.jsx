@@ -13,6 +13,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 const NexsaiLegal = lazy(() => import('./components/NexsaiLegal'));
+const NexsaiTerms = lazy(() => import('./components/NexsaiTerms'));
 
 const checkIsPrivacyPolicyRoute = () => {
   if (typeof window === 'undefined') return false;
@@ -36,9 +37,46 @@ const checkIsPrivacyPolicyRoute = () => {
   );
 };
 
+const checkIsTermsRoute = () => {
+  if (typeof window === 'undefined') return false;
+  const rawPath = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+  let decodedPath = rawPath;
+  try {
+    decodedPath = decodeURIComponent(rawPath);
+  } catch {
+    // ignore decode error
+  }
+
+  const rawHash = window.location.hash.toLowerCase().replace(/\/+$/, '');
+  let decodedHash = rawHash;
+  try {
+    decodedHash = decodeURIComponent(rawHash);
+  } catch {
+    // ignore decode error
+  }
+
+  const isMatch = (str) => {
+    return (
+      str.includes('terms&conditins') ||
+      str.includes('terms&conditions') ||
+      str.includes('terms-and-conditions') ||
+      str.includes('termsandconditions') ||
+      str.endsWith('/nexsaione/terms') ||
+      str.endsWith('/terms') ||
+      str === '/nexsaione/terms&conditins' ||
+      str === '/nexsaione/terms&conditions' ||
+      str === '/nexsaicommunity/nexsaione/terms&conditins' ||
+      str === '/nexsaicommunity/nexsaione/terms&conditions'
+    );
+  };
+
+  return isMatch(rawPath) || isMatch(decodedPath) || isMatch(rawHash) || isMatch(decodedHash);
+};
+
 export default function App() {
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const [isPrivacyPolicy, setIsPrivacyPolicy] = useState(() => checkIsPrivacyPolicyRoute());
+  const [isTerms, setIsTerms] = useState(() => checkIsTermsRoute());
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
@@ -51,6 +89,7 @@ export default function App() {
   useEffect(() => {
     const handleLocationChange = () => {
       setIsPrivacyPolicy(checkIsPrivacyPolicyRoute());
+      setIsTerms(checkIsTermsRoute());
     };
 
     window.addEventListener('popstate', handleLocationChange);
@@ -80,6 +119,14 @@ export default function App() {
       behavior: 'smooth'
     });
   };
+
+  if (isTerms) {
+    return (
+      <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }} />}>
+        <NexsaiTerms theme={theme} setTheme={setTheme} />
+      </Suspense>
+    );
+  }
 
   if (isPrivacyPolicy) {
     return (
