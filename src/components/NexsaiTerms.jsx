@@ -1,29 +1,29 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FiFileText, 
-  FiUser, 
-  FiCheckCircle, 
-  FiXCircle, 
-  FiAlertTriangle, 
-  FiShield, 
-  FiCpu, 
-  FiCreditCard, 
-  FiMail, 
-  FiSun, 
-  FiMoon, 
-  FiArrowUp, 
-  FiSearch, 
-  FiInfo, 
-  FiLayers, 
-  FiExternalLink, 
-  FiClock, 
-  FiTrash2, 
-  FiRefreshCw, 
-  FiBell, 
-  FiGlobe, 
-  FiBookOpen, 
-  FiAward, 
+import {
+  FiFileText,
+  FiUser,
+  FiCheckCircle,
+  FiXCircle,
+  FiAlertTriangle,
+  FiShield,
+  FiCpu,
+  FiCreditCard,
+  FiMail,
+  FiSun,
+  FiMoon,
+  FiArrowUp,
+  FiSearch,
+  FiInfo,
+  FiLayers,
+  FiExternalLink,
+  FiClock,
+  FiTrash2,
+  FiRefreshCw,
+  FiBell,
+  FiGlobe,
+  FiBookOpen,
+  FiAward,
   FiHelpCircle
 } from 'react-icons/fi';
 import logo from '../assets/NexSai Logo.png';
@@ -385,7 +385,7 @@ export default function NexsaiTerms({ theme, setTheme }) {
               <span className="tier-badge">Spark</span>
               <div className="tier-price">₹49<span className="tier-period">/month</span></div>
               <ul className="tier-features">
-                <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> 50 AI credits per billing period</li>
+                <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> 50 NEX per billing period</li>
                 <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> Ad-free experience</li>
               </ul>
             </div>
@@ -395,7 +395,7 @@ export default function NexsaiTerms({ theme, setTheme }) {
               <span className="tier-badge popular">Pro</span>
               <div className="tier-price">₹99<span className="tier-period">/month</span></div>
               <ul className="tier-features">
-                <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> 100 AI credits per billing period</li>
+                <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> 100 NEX per billing period</li>
                 <li><FiCheckCircle size={14} style={{ color: 'var(--accent-blue)' }} /> Ad-free experience</li>
               </ul>
             </div>
@@ -451,8 +451,8 @@ export default function NexsaiTerms({ theme, setTheme }) {
               Spark and Pro subscriptions include a specified number of AI credits per billing period:
             </p>
             <ul className="terms-bullet-list" style={{ marginBottom: '0.75rem' }}>
-              <li><strong>Spark</strong> includes 50 credits per billing period.</li>
-              <li><strong>Pro</strong> includes 100 credits per billing period.</li>
+              <li><strong>Spark</strong> includes 50 NEX per billing period.</li>
+              <li><strong>Pro</strong> includes 100 NEX per billing period.</li>
             </ul>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '0.5rem' }}>
               Unused subscription-included credits expire when the applicable billing period ends.
@@ -464,7 +464,7 @@ export default function NexsaiTerms({ theme, setTheme }) {
 
           <div className="terms-subcard" style={{ marginBottom: '1rem' }}>
             <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.6rem' }}>
-              Additional Top-Up Credits
+              Additional Top-Up NEX
             </h4>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '0.5rem' }}>
               Users may be able to purchase additional AI credits through Google Play Billing.
@@ -1034,33 +1034,33 @@ export default function NexsaiTerms({ theme, setTheme }) {
   const filteredSections = searchQuery.trim() === ''
     ? sections
     : sections.filter(sec => {
-        const query = searchQuery.toLowerCase();
-        return (
-          sec.title.toLowerCase().includes(query) ||
-          sec.num.includes(query)
-        );
-      });
+      const query = searchQuery.toLowerCase();
+      return (
+        sec.title.toLowerCase().includes(query) ||
+        sec.num.includes(query)
+      );
+    });
 
   return (
     <div className="terms-page-wrapper">
       {/* Dynamic Glow Blobs */}
-      <div 
-        className="glow-blob" 
-        style={{ top: '0', left: '10%', opacity: 0.12, background: 'radial-gradient(circle, var(--accent-blue) 0%, transparent 70%)' }} 
+      <div
+        className="glow-blob"
+        style={{ top: '0', left: '10%', opacity: 0.12, background: 'radial-gradient(circle, var(--accent-blue) 0%, transparent 70%)' }}
       />
-      <div 
-        className="glow-blob" 
-        style={{ top: '800px', right: '5%', opacity: 0.08, background: 'radial-gradient(circle, var(--accent-blue) 0%, transparent 70%)' }} 
+      <div
+        className="glow-blob"
+        style={{ top: '800px', right: '5%', opacity: 0.08, background: 'radial-gradient(circle, var(--accent-blue) 0%, transparent 70%)' }}
       />
 
       {/* Standalone Header */}
       <header className="terms-header">
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <a href="/" className="terms-brand-link" title="Return to NEXSAI Community">
-            <img 
-              src={logo} 
-              alt="NEXSAI Community Logo" 
-              style={{ height: '36px', width: '36px', objectFit: 'contain', borderRadius: '8px' }} 
+            <img
+              src={logo}
+              alt="NEXSAI Community Logo"
+              style={{ height: '36px', width: '36px', objectFit: 'contain', borderRadius: '8px' }}
             />
             <span className="brand-text">
               NEXSAI <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>Community</span>
@@ -1111,7 +1111,7 @@ export default function NexsaiTerms({ theme, setTheme }) {
           {/* Introductory Preamble Card */}
           <div className="preamble-card">
             <p style={{ fontSize: '1.02rem', lineHeight: 1.7, color: 'var(--text-primary)', marginBottom: '0.85rem' }}>
-              Welcome to <strong>NEXSAI One</strong>, an educational and technology-focused application developed and operated by <strong>Viswanath Sai Sandeep</strong> ("we", "us", "our", or "NEXSAI One").
+              Welcome to <strong>NEXSAI One</strong>, an educational and technology-focused application developed and operated by <strong>Viswanath Sai Sandeep</strong>.
             </p>
             <p style={{ fontSize: '0.98rem', lineHeight: 1.7, color: 'var(--text-secondary)', marginBottom: '0.85rem' }}>
               These Terms & Conditions ("Terms") govern your access to and use of the NEXSAI One mobile application and related services.
@@ -1126,7 +1126,7 @@ export default function NexsaiTerms({ theme, setTheme }) {
         <div className="search-filter-box">
           <div className="search-input-wrapper">
             <FiSearch size={18} style={{ color: 'var(--text-muted)' }} />
-            <input 
+            <input
               type="text"
               placeholder="Search terms (e.g., Subscriptions, Credits, AI, Cancellation, Refunds, Prohibited)..."
               value={searchQuery}
@@ -1134,7 +1134,7 @@ export default function NexsaiTerms({ theme, setTheme }) {
               className="terms-search-input"
             />
             {searchQuery && (
-              <button 
+              <button
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search"
                 style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
@@ -1148,8 +1148,8 @@ export default function NexsaiTerms({ theme, setTheme }) {
         {/* Table of Contents Quick Nav */}
         <div className="toc-chips-scroll">
           {sections.map((sec) => (
-            <a 
-              key={sec.id} 
+            <a
+              key={sec.id}
               href={`#${sec.id}`}
               className="toc-chip"
               onClick={(e) => {
@@ -1175,7 +1175,7 @@ export default function NexsaiTerms({ theme, setTheme }) {
               <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
                 No sections matched "<strong>{searchQuery}</strong>"
               </p>
-              <button 
+              <button
                 onClick={() => setSearchQuery('')}
                 className="clear-search-btn"
               >
@@ -1184,9 +1184,9 @@ export default function NexsaiTerms({ theme, setTheme }) {
             </div>
           ) : (
             filteredSections.map((sec) => (
-              <section 
-                key={sec.id} 
-                id={sec.id} 
+              <section
+                key={sec.id}
+                id={sec.id}
                 className="terms-section-card"
               >
                 <div className="section-card-header">
