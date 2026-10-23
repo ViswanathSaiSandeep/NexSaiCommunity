@@ -52,7 +52,7 @@ export default function BlogComingSoon() {
             {/* Headers */}
             <h2 className="coming-soon-title">NEXSAI <span className="title-highlight">Blogs</span></h2>
             <p className="coming-soon-description">
-              We are currently building a dedicated technology news and blogging platform. 
+              We are currently building the dedicated NEXSAI Community (Nexsaicommunity) technology news and blogging platform. 
               Soon, you will find comprehensive AI guides, latest technology news, software reviews, 
               tech tutorials, and emerging technology analysis.
             </p>

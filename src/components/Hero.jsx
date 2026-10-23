@@ -59,7 +59,7 @@ export default function Hero() {
             >
               <img 
                 src={logo} 
-                alt="NEXSAI Logo" 
+                alt="NEXSAI Community Logo" 
                 style={{ 
                   width: '160px', 
                   height: '160px', 

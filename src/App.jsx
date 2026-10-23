@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowUp } from 'react-icons/fi';
 import Navbar from './components/Navbar';
@@ -12,8 +12,33 @@ import BlogComingSoon from './components/BlogComingSoon';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+const NexsaiLegal = lazy(() => import('./components/NexsaiLegal'));
+
+const checkIsPrivacyPolicyRoute = () => {
+  if (typeof window === 'undefined') return false;
+  const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+  const hash = window.location.hash.toLowerCase().replace(/\/+$/, '');
+
+  return (
+    path === '/nexsaicommunity/nexsaione/privacypolicy' ||
+    path === '/nexsaione/privacypolicy' ||
+    path === '/privacypolicy' ||
+    path === '/privacy-policy' ||
+    path.endsWith('/nexsaione/privacypolicy') ||
+    path.endsWith('/privacypolicy') ||
+    path.endsWith('/privacy-policy') ||
+    hash === '#/nexsaicommunity/nexsaione/privacypolicy' ||
+    hash === '#/nexsaione/privacypolicy' ||
+    hash === '#/privacypolicy' ||
+    hash === '#/privacy-policy' ||
+    hash.includes('privacypolicy') ||
+    hash.includes('privacy-policy')
+  );
+};
+
 export default function App() {
   const [showScrollBtn, setShowScrollBtn] = useState(false);
+  const [isPrivacyPolicy, setIsPrivacyPolicy] = useState(() => checkIsPrivacyPolicyRoute());
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
@@ -22,6 +47,19 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setIsPrivacyPolicy(checkIsPrivacyPolicyRoute());
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScrollBtnVisibility = () => {
@@ -42,6 +80,14 @@ export default function App() {
       behavior: 'smooth'
     });
   };
+
+  if (isPrivacyPolicy) {
+    return (
+      <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }} />}>
+        <NexsaiLegal theme={theme} setTheme={setTheme} />
+      </Suspense>
+    );
+  }
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>

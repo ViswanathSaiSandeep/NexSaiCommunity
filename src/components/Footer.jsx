@@ -63,7 +63,7 @@ export default function Footer() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <img 
                 src={logo} 
-                alt="NEXSAI Logo" 
+                alt="NEXSAI Community Logo" 
                 style={{ height: '38px', width: '38px', objectFit: 'contain', borderRadius: '8px' }} 
               />
               <span style={{ 

@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import { FiSun, FiMoon } from 'react-icons/fi';
 import logo from '../assets/NexSai Logo.png';
+
+const navLinks = [
+  { name: 'Home', href: '#home', id: 'home' },
+  { name: 'About', href: '#about', id: 'about' },
+  { name: 'Focus Areas', href: '#focus-areas', id: 'focus-areas' },
+  { name: 'Videos', href: '#videos', id: 'videos' },
+  { name: 'Founder', href: '#founder', id: 'founder' },
+  { name: 'Blogs', href: '#blogs', id: 'blogs' },
+  { name: 'Contact', href: '#contact', id: 'contact' }
+];
 
 export default function Navbar({ theme, setTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-
-  const navLinks = [
-    { name: 'Home', href: '#home', id: 'home' },
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Focus Areas', href: '#focus-areas', id: 'focus-areas' },
-    { name: 'Videos', href: '#videos', id: 'videos' },
-    { name: 'Founder', href: '#founder', id: 'founder' },
-    { name: 'Blogs', href: '#blogs', id: 'blogs' },
-    { name: 'Contact', href: '#contact', id: 'contact' }
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,10 +68,16 @@ export default function Navbar({ theme, setTheme }) {
       <nav className={`glass-nav ${scrolled ? 'nav-scrolled' : ''}`} style={{ height: '72px', display: 'flex', alignItems: 'center' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           {/* Logo Brand */}
-          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
+          <a 
+            href="#home" 
+            onClick={(e) => handleLinkClick(e, '#home')} 
+            aria-label="NEXSAI Community - Nexsaicommunity" 
+            title="NEXSAI Community (Nexsaicommunity)" 
+            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}
+          >
             <img 
               src={logo} 
-              alt="NEXSAI Logo" 
+              alt="NEXSAI Community - Nexsaicommunity Logo" 
               style={{ height: '40px', width: '40px', objectFit: 'contain', borderRadius: '8px' }} 
             />
             <span style={{ 

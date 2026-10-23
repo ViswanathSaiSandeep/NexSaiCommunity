@@ -20,7 +20,7 @@ export default function YoutubeShowcase() {
           <span className="section-tag">Official Media</span>
           <h2 className="section-title">Featured Video</h2>
           <p className="section-subtitle">
-            Watch our tech guides, hardware reviews, and AI updates direct from our official channel.
+            Watch our tech guides, hardware reviews, and AI updates direct from the official Nexsaicommunity channel.
           </p>
         </div>
 

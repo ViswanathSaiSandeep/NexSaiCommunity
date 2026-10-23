@@ -64,7 +64,7 @@ export default function Contact() {
           throw new Error('Submission failed');
         }
       })
-      .catch((err) => {
+      .catch(() => {
         setErrors({ submit: 'Failed to send message. Please try again or email us directly.' });
       })
       .finally(() => {
@@ -87,7 +87,7 @@ export default function Contact() {
           <span className="section-tag">Get in Touch</span>
           <h2 className="section-title">Contact Us</h2>
           <p className="section-subtitle">
-            Questions, collaborations, partnerships, or community inquiries are always welcome.
+            Questions, collaborations, partnerships, or Nexsaicommunity inquiries are always welcome.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export default function Contact() {
           >
             <h3 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', letterSpacing: '-0.3px' }}>Let's Build the Future</h3>
             <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '2.5rem' }}>
-              Whether you are a developer, brand seeking collaboration, or reader with feedback, we would love to hear from you. Reach out directly or use our channels.
+              Whether you are a developer, brand seeking collaboration, or reader with feedback, the NEXSAI Community (Nexsaicommunity) team would love to hear from you. Reach out directly or use our channels.
             </p>
 
             {/* Contact Details List */}
