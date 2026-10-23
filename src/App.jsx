@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 
 const NexsaiLegal = lazy(() => import('./components/NexsaiLegal'));
 const NexsaiTerms = lazy(() => import('./components/NexsaiTerms'));
+const NexsaiAccountDeletion = lazy(() => import('./components/NexsaiAccountDeletion'));
 
 const checkIsPrivacyPolicyRoute = () => {
   if (typeof window === 'undefined') return false;
@@ -73,10 +74,30 @@ const checkIsTermsRoute = () => {
   return isMatch(rawPath) || isMatch(decodedPath) || isMatch(rawHash) || isMatch(decodedHash);
 };
 
+const checkIsDeleteAccountRoute = () => {
+  if (typeof window === 'undefined') return false;
+  const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+  const hash = window.location.hash.toLowerCase().replace(/\/+$/, '');
+
+  const isMatch = (str) => {
+    return (
+      str === '/delete-account' ||
+      str === '/deleteaccount' ||
+      str.endsWith('/delete-account') ||
+      str.endsWith('/deleteaccount') ||
+      str.includes('delete-account') ||
+      str.includes('deleteaccount')
+    );
+  };
+
+  return isMatch(path) || isMatch(hash);
+};
+
 export default function App() {
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const [isPrivacyPolicy, setIsPrivacyPolicy] = useState(() => checkIsPrivacyPolicyRoute());
   const [isTerms, setIsTerms] = useState(() => checkIsTermsRoute());
+  const [isDeleteAccount, setIsDeleteAccount] = useState(() => checkIsDeleteAccountRoute());
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
@@ -90,6 +111,7 @@ export default function App() {
     const handleLocationChange = () => {
       setIsPrivacyPolicy(checkIsPrivacyPolicyRoute());
       setIsTerms(checkIsTermsRoute());
+      setIsDeleteAccount(checkIsDeleteAccountRoute());
     };
 
     window.addEventListener('popstate', handleLocationChange);
@@ -119,6 +141,14 @@ export default function App() {
       behavior: 'smooth'
     });
   };
+
+  if (isDeleteAccount) {
+    return (
+      <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }} />}>
+        <NexsaiAccountDeletion theme={theme} setTheme={setTheme} />
+      </Suspense>
+    );
+  }
 
   if (isTerms) {
     return (
