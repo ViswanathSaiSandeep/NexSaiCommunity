@@ -10,8 +10,7 @@ const navLinks = [
   { name: 'Videos', href: '#videos', id: 'videos' },
   { name: 'Founder', href: '#founder', id: 'founder' },
   { name: 'Blogs', href: '#blogs', id: 'blogs' },
-  { name: 'Contact', href: '#contact', id: 'contact' },
-  { name: 'NEXSAI One', href: '/nexsaione', id: 'nexsaione', isPage: true }
+  { name: 'Contact', href: '#contact', id: 'contact' }
 ];
 
 export default function Navbar({ theme, setTheme }) {

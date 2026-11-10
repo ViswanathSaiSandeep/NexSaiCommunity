@@ -30,14 +30,12 @@ export default function Footer() {
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'NEXSAI One App & Pricing', href: '/nexsaione' },
     { name: 'About', href: '#about' },
     { name: 'Focus Areas', href: '#focus-areas' },
     { name: 'Videos', href: '#videos' },
     { name: 'Founder', href: '#founder' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'Privacy Policy', href: '/nexsaione/privacypolicy' },
-    { name: 'Terms & Conditions', href: '/nexsaione/terms&conditions' }
+    { name: 'Blogs', href: '#blogs' },
+    { name: 'Contact', href: '#contact' }
   ];
 
   const handleLinkClick = (e, href) => {
