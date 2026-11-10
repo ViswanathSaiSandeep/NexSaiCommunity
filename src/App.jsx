@@ -15,6 +15,23 @@ import Footer from './components/Footer';
 const NexsaiLegal = lazy(() => import('./components/NexsaiLegal'));
 const NexsaiTerms = lazy(() => import('./components/NexsaiTerms'));
 const NexsaiAccountDeletion = lazy(() => import('./components/NexsaiAccountDeletion'));
+const NexsaiOnePage = lazy(() => import('./components/NexsaiOnePage'));
+
+const checkIsNexsaiOneRoute = () => {
+  if (typeof window === 'undefined') return false;
+  const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+  const hash = window.location.hash.toLowerCase().replace(/\/+$/, '');
+
+  return (
+    path === '/nexsaione' ||
+    path === '/nexsai-one' ||
+    path === '/nexsaicommunity/nexsaione' ||
+    path.endsWith('/nexsaione') ||
+    path.endsWith('/nexsai-one') ||
+    hash === '#/nexsaione' ||
+    hash === '#/nexsai-one'
+  );
+};
 
 const checkIsPrivacyPolicyRoute = () => {
   if (typeof window === 'undefined') return false;
@@ -98,6 +115,7 @@ export default function App() {
   const [isPrivacyPolicy, setIsPrivacyPolicy] = useState(() => checkIsPrivacyPolicyRoute());
   const [isTerms, setIsTerms] = useState(() => checkIsTermsRoute());
   const [isDeleteAccount, setIsDeleteAccount] = useState(() => checkIsDeleteAccountRoute());
+  const [isNexsaiOne, setIsNexsaiOne] = useState(() => checkIsNexsaiOneRoute());
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
@@ -112,6 +130,7 @@ export default function App() {
       setIsPrivacyPolicy(checkIsPrivacyPolicyRoute());
       setIsTerms(checkIsTermsRoute());
       setIsDeleteAccount(checkIsDeleteAccountRoute());
+      setIsNexsaiOne(checkIsNexsaiOneRoute());
     };
 
     window.addEventListener('popstate', handleLocationChange);
@@ -162,6 +181,14 @@ export default function App() {
     return (
       <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }} />}>
         <NexsaiLegal theme={theme} setTheme={setTheme} />
+      </Suspense>
+    );
+  }
+
+  if (isNexsaiOne) {
+    return (
+      <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }} />}>
+        <NexsaiOnePage theme={theme} setTheme={setTheme} />
       </Suspense>
     );
   }

@@ -10,7 +10,8 @@ const navLinks = [
   { name: 'Videos', href: '#videos', id: 'videos' },
   { name: 'Founder', href: '#founder', id: 'founder' },
   { name: 'Blogs', href: '#blogs', id: 'blogs' },
-  { name: 'Contact', href: '#contact', id: 'contact' }
+  { name: 'Contact', href: '#contact', id: 'contact' },
+  { name: 'NEXSAI One', href: '/nexsaione', id: 'nexsaione', isPage: true }
 ];
 
 export default function Navbar({ theme, setTheme }) {
@@ -48,6 +49,10 @@ export default function Navbar({ theme, setTheme }) {
   const closeMenu = () => setIsOpen(false);
 
   const handleLinkClick = (e, href) => {
+    if (href.startsWith('/')) {
+      closeMenu();
+      return;
+    }
     e.preventDefault();
     closeMenu();
     const targetId = href.replace('#', '');
